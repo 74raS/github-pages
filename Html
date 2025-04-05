@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Free Internet Speed Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+    }
+    #speed {
+      font-size: 2em;
+      margin-top: 20px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 1.1em;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    .ad-container {
+      margin: 40px auto;
+      background-color: #fff;
+      border: 2px dashed #aaa;
+      padding: 20px;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Free Internet Speed Test</h1>
+
+  <!-- Ad Slot (Top) -->
+  <div class="ad-container">
+    <!-- Paste Your Ad Code Here (Top Ad) -->
+    <p><i>Top Ad Slot</i></p>
+  </div>
+
+  <button onclick="checkSpeed()">Start Speed Test</button>
+  <div id="speed">Your speed will appear here...</div>
+
+  <!-- Ad Slot (Bottom) -->
+  <div class="ad-container">
+    <!-- Paste Your Ad Code Here (Bottom Ad) -->
+    <p><i>Bottom Ad Slot</i></p>
+  </div>
+
+  <script>
+    function checkSpeed() {
+      const imageAddr = "https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg"; // ~1.2MB
+      const startTime = new Date().getTime();
+      const download = new Image();
+      download.onload = function () {
+        const endTime = new Date().getTime();
+        const duration = (endTime - startTime) / 1000;
+        const bitsLoaded = 1200000 * 8;
+        const speedMbps = (bitsLoaded / duration / 1024 / 1024).toFixed(2);
+        document.getElementById("speed").innerText = "Download Speed: " + speedMbps + " Mbps";
+      };
+      download.src = imageAddr + "?nn=" + Math.random();
+    }
+  </script>
+</body>
+</html>
